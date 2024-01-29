@@ -11,21 +11,21 @@ public class Client {
     private String lastName;
     private String fullName;
     private String cpf;
-    private String bithday;
+    private String birthday;
     private int age;
     private char gender;
     private String email;
     private String address;
     private String phone;
 
-    public Client(String firstName, String middleName, String lastName, String cpf, String bithday,
+    public Client(String firstName, String middleName, String lastName, String cpf, String birthday,
                  char gender, String email, String address, String phone) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.fullName = firstName +" "+ middleName+" "+lastName;
         this.cpf = cpf;
-        this.bithday = bithday;
+        this.birthday = birthday;
         this.age = defineAge();
         this.gender = gender;
         this.email = email;
@@ -43,7 +43,7 @@ public class Client {
         Calendar calendar = Calendar.getInstance();
         Date birthdayClient;
         try {
-            birthdayClient = defineDateFormat("dd/MM/YYYY").parse(bithday);
+            birthdayClient = defineDateFormat("dd/MM/YYYY").parse(birthday);
         } catch (ParseException e){
             throw new RuntimeException(e);
         }
@@ -106,12 +106,12 @@ public class Client {
         this.cpf = cpf;
     }
 
-    public String getBithday() {
-        return bithday;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setBithday(String bithday) {
-        this.bithday = bithday;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public int getAge() {
@@ -168,7 +168,7 @@ public class Client {
     public String toString() {
         return treatmentGender() + " " + getFullName() +
                 ", com CPF "+ getCpf() +
-                ", data de nascimento "+ getBithday() +
+                ", data de nascimento "+ getBirthday() +
                 " com idade de "+ getAge() +
                 ", email: " + getEmail() +
                 ", endereço "+ getAddress() +

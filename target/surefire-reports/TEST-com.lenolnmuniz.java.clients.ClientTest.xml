@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.112" tests="26" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.lenolnmuniz.java.clients.ClientTest" time="0.009" tests="23" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -7,6 +7,7 @@
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="os.name" value="Linux"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -52,30 +53,27 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testSetBithday" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.038"/>
-  <testcase name="testSetFullName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testGetEmail" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testGetPhone" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testSetFirstName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testGetFullName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testWithContacts" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testGetAddress" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testSetLastName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testGetLastName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testGetBithday" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testGetMiddleName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testSetGender" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testToStringContacts" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testToStringId" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.008"/>
-  <testcase name="testSetAddress" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.003"/>
-  <testcase name="testGetGender" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testGetFirstName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testGetAge" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testGetCpf" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testSetMiddleName" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testSetAge" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testSetCpf" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
-  <testcase name="testWithId" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testSetEmail" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.001"/>
-  <testcase name="testSetPhone" classname="com.lenolnmuniz.java.clients.ClientBuilderTest" time="0.0"/>
+  <testcase name="testSetBirthday" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetBirthday" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetFullName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetEmail" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetPhone" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetFirstName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetFullName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetAddress" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetLastName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetLastName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testTestToString" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.002"/>
+  <testcase name="testGetMiddleName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.001"/>
+  <testcase name="testSetGender" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetAddress" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetGender" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetFirstName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.001"/>
+  <testcase name="testGetAge" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testGetCpf" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetMiddleName" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.001"/>
+  <testcase name="testSetAge" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetCpf" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
+  <testcase name="testSetEmail" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.001"/>
+  <testcase name="testSetPhone" classname="com.lenolnmuniz.java.clients.ClientTest" time="0.0"/>
 </testsuite>
