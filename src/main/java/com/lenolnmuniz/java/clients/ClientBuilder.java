@@ -11,7 +11,7 @@ public class ClientBuilder {
     private String lastName;
     private String fullName;
     private String cpf;
-    private String bithday;
+    private String birthday;
     private int age;
     private char gender;
     private String email;
@@ -25,7 +25,7 @@ public class ClientBuilder {
         this.lastName = lastName;
         this.fullName = firstName + " " + middleName + " " + lastName;
         this.cpf = cpf;
-        this.bithday = bithday;
+        this.birthday = bithday;
         this.age = defineAge();
         this.gender = gender;
 
@@ -49,7 +49,7 @@ public class ClientBuilder {
         Calendar calendar = Calendar.getInstance();
         Date birthdayClient;
         try {
-            birthdayClient = defineDateFormat("dd/MM/YYYY").parse(bithday);
+            birthdayClient = defineDateFormat("dd/MM/YYYY").parse(birthday);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -112,12 +112,12 @@ public class ClientBuilder {
         this.cpf = cpf;
     }
 
-    public String getBithday() {
-        return bithday;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setBithday(String bithday) {
-        this.bithday = bithday;
+    public void setBirthday(String bithday) {
+        this.birthday = bithday;
     }
 
     public int getAge() {
@@ -173,7 +173,7 @@ public class ClientBuilder {
     public String toStringId() {
         return "Os dados pessoais são: Nome Completo: " + treatmentGender() + " " + getFullName() +
                 ", com CPF " + getCpf() +
-                ", data de nascimento " + getBithday() +
+                ", data de nascimento " + getBirthday() +
                 " com idade de " + getAge();
     }
 
