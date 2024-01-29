@@ -1,2 +1,2 @@
 # Basic CRM Project
-Developing a Customer Relationship Management (CRM) system.
+Developing a project with Maven managment.
