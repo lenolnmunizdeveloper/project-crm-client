@@ -20,7 +20,7 @@ public class Main {
                 "Rua tal, número 123, bairro Tal, cidade Tal/MG",
                 "(31) 98922-2771");
 
-        System.out.println(clientContacts.toStringContacts());
+        //System.out.println(clientContacts.toStringContacts());
     }
 }
 
