@@ -13,7 +13,7 @@ public class Main {
 
         System.out.println(clientOne.toString());
 
-        ClientBuilder clientId = new ClientBuilder().withId("Lenoln", "B A M", "Muniz", "111.222.333-44", "06/03/1997",
+        ClientBuilder clientId = new ClientBuilder().withId("Lenoln", "B A M", "Muniz", "111.222.333-44", "17/02/1997",
                 'M');
 
         System.out.println(clientId.toStringId());

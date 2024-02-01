@@ -1,9 +1,9 @@
 package com.lenolnmuniz.java.clients;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Client {
 
@@ -12,7 +12,7 @@ public class Client {
     private String lastName;
     private String fullName;
     private String cpf;
-    private String birthday;
+    private LocalDate birthday;
     private int age;
     private char gender;
     private String email;
@@ -26,7 +26,7 @@ public class Client {
         this.lastName = lastName;
         this.fullName = firstName + " " + middleName + " " + lastName;
         this.cpf = cpf;
-        this.birthday = birthday;
+        this.birthday = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.age = defineAge();
         this.gender = gender;
         this.email = email;
@@ -34,31 +34,8 @@ public class Client {
         this.phone = phone;
     }
 
-    private int defineAge() throws ParseException {
-        return restoreCurrentYear() - restoreBirthYear();
-    }
-
-    private int restoreBirthYear() throws ParseException {
-        Calendar calendar = Calendar.getInstance();
-        Date birthdayClient;
-        birthdayClient = defineDateFormat("dd/MM/yyyy").parse(birthday);
-        calendar.setTime(birthdayClient);
-        return calendar.get(Calendar.YEAR);
-    }
-
-    private int restoreCurrentYear() {
-        Calendar calendar = Calendar.getInstance();
-        Date today = new Date();
-        calendar.setTime(today);
-        return calendar.get(Calendar.YEAR);
-    }
-
-    private SimpleDateFormat defineDateFormat(String format) {
-        if ("".equals(format)) {
-            return new SimpleDateFormat("dd/MM/yyyy");
-        } else {
-            return new SimpleDateFormat(format);
-        }
+    private int defineAge() {
+        return Period.between(birthday, LocalDate.now()).getYears();
     }
 
     public String getFirstName() {
@@ -101,11 +78,11 @@ public class Client {
         this.cpf = cpf;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -163,7 +140,7 @@ public class Client {
     public String toString() {
         return treatmentGender() + " " + getFullName() +
                 ", com CPF " + getCpf() +
-                ", data de nascimento " + getBirthday() +
+                ", data de nascimento " + getBirthday().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
                 " com idade de " + getAge() +
                 ", email: " + getEmail() +
                 ", endereço " + getAddress() +

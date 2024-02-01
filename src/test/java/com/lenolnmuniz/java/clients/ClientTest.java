@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -76,13 +78,13 @@ public class ClientTest {
 
     @Test
     public void testGetBirthday() {
-        assertEquals(client.getBirthday(), "07/04/1988");
+        assertEquals(client.getBirthday(), LocalDate.parse("07/04/1988", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
     @Test
     public void testSetBirthday() {
-        client.setBirthday("02/02/2002");
-        assertEquals(client.getBirthday(), "02/02/2002");
+        client.setBirthday(LocalDate.parse("02/02/2002", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        assertEquals(client.getBirthday(), LocalDate.parse("02/02/2002", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
     @Test

@@ -2,6 +2,9 @@ package com.lenolnmuniz.java.clients;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class ClientBuilder {
@@ -11,21 +14,21 @@ public class ClientBuilder {
     private String lastName;
     private String fullName;
     private String cpf;
-    private String birthday;
+    private LocalDate birthday;
     private int age;
     private char gender;
     private String email;
     private String address;
     private String phone;
 
-    public ClientBuilder withId(String firstName, String middleName, String lastName, String cpf, String bithday,
+    public ClientBuilder withId(String firstName, String middleName, String lastName, String cpf, String birthday,
             char gender) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.fullName = firstName + " " + middleName + " " + lastName;
         this.cpf = cpf;
-        this.birthday = bithday;
+        this.birthday = LocalDate.parse(birthday, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         this.age = defineAge();
         this.gender = gender;
 
@@ -40,37 +43,9 @@ public class ClientBuilder {
     }
 
     private int defineAge() {
-        int currentYear = restoreCurrentYear();
-        int birthYear = restoreBirthYear();
-        return currentYear - birthYear;
+        return Period.between(birthday, LocalDate.now()).getYears();
     }
 
-    private int restoreBirthYear() {
-        Calendar calendar = Calendar.getInstance();
-        Date birthdayClient;
-        try {
-            birthdayClient = defineDateFormat("dd/MM/YYYY").parse(birthday);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        calendar.setTime(birthdayClient);
-        return calendar.get(Calendar.YEAR);
-    }
-
-    private int restoreCurrentYear() {
-        Calendar calendar = Calendar.getInstance();
-        Date today = new Date();
-        calendar.setTime(today);
-        return calendar.get(Calendar.YEAR);
-    }
-
-    private SimpleDateFormat defineDateFormat(String format) {
-        if ("".equals(format)) {
-            return new SimpleDateFormat("dd/MM/yyyy");
-        } else {
-            return new SimpleDateFormat(format);
-        }
-    }
 
     public String getFirstName() {
         return firstName;
@@ -112,12 +87,12 @@ public class ClientBuilder {
         this.cpf = cpf;
     }
 
-    public String getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String bithday) {
-        this.birthday = bithday;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public int getAge() {
@@ -173,7 +148,7 @@ public class ClientBuilder {
     public String toStringId() {
         return "Os dados pessoais são: Nome Completo: " + treatmentGender() + " " + getFullName() +
                 ", com CPF " + getCpf() +
-                ", data de nascimento " + getBirthday() +
+                ", data de nascimento " + getBirthday().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
                 " com idade de " + getAge();
     }
 

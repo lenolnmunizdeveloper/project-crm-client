@@ -4,6 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientBuilderTest {
@@ -88,13 +91,13 @@ public class ClientBuilderTest {
 
     @Test
     public void testGetBithday() {
-        assertEquals(clientBuilder.getBirthday(), "06/03/1997");
+        assertEquals(clientBuilder.getBirthday(), LocalDate.parse("06/03/1997", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
     @Test
     public void testSetBithday() {
-        clientBuilder.setBirthday("01/01/2000");
-        assertEquals(clientBuilder.getBirthday(), "01/01/2000");
+        clientBuilder.setBirthday(LocalDate.parse("01/01/2000", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        assertEquals(clientBuilder.getBirthday(), LocalDate.parse("01/01/2000", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
     }
 
     @Test
