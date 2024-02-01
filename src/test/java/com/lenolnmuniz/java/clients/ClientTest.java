@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,7 +15,7 @@ public class ClientTest {
     public Client client;
 
     @Before
-    public void setUp() {
+    public void setUp() throws ParseException {
         client = new Client("Carlos", "Rafael da", "Silva", "555.666.777-88", "07/04/1988", 'M', "carlos@carlos.com", "Rua Tal, 456", "(31) 98765-4321");
     }
 
