@@ -2,7 +2,8 @@ package com.lenolnmuniz.java.clients;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Client {
 
@@ -19,11 +20,11 @@ public class Client {
     private String phone;
 
     public Client(String firstName, String middleName, String lastName, String cpf, String birthday,
-                 char gender, String email, String address, String phone) {
+                  char gender, String email, String address, String phone) throws ParseException {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.fullName = firstName +" "+ middleName+" "+lastName;
+        this.fullName = firstName + " " + middleName + " " + lastName;
         this.cpf = cpf;
         this.birthday = birthday;
         this.age = defineAge();
@@ -33,33 +34,27 @@ public class Client {
         this.phone = phone;
     }
 
-    private int defineAge() {
-        int currentYear = restoreCurrentYear();
-        int birthYear = restoreBirthYear();
-        return currentYear - birthYear;
+    private int defineAge() throws ParseException {
+        return restoreCurrentYear() - restoreBirthYear();
     }
 
-    private int restoreBirthYear() {
+    private int restoreBirthYear() throws ParseException {
         Calendar calendar = Calendar.getInstance();
         Date birthdayClient;
-        try {
-            birthdayClient = defineDateFormat("dd/MM/YYYY").parse(birthday);
-        } catch (ParseException e){
-            throw new RuntimeException(e);
-        }
+        birthdayClient = defineDateFormat("dd/MM/yyyy").parse(birthday);
         calendar.setTime(birthdayClient);
         return calendar.get(Calendar.YEAR);
     }
 
-    private int restoreCurrentYear(){
+    private int restoreCurrentYear() {
         Calendar calendar = Calendar.getInstance();
         Date today = new Date();
         calendar.setTime(today);
         return calendar.get(Calendar.YEAR);
     }
 
-    private SimpleDateFormat defineDateFormat(String format){
-        if("".equals(format)){
+    private SimpleDateFormat defineDateFormat(String format) {
+        if ("".equals(format)) {
             return new SimpleDateFormat("dd/MM/yyyy");
         } else {
             return new SimpleDateFormat(format);
@@ -154,10 +149,10 @@ public class Client {
         this.phone = phone;
     }
 
-    private String treatmentGender(){
-        if(getGender() == 'M'){
+    private String treatmentGender() {
+        if (getGender() == 'M') {
             return "Sr.";
-        } else if (getGender() == 'F'){
+        } else if (getGender() == 'F') {
             return "Sra.";
         } else {
             return "";
@@ -167,12 +162,12 @@ public class Client {
     @Override
     public String toString() {
         return treatmentGender() + " " + getFullName() +
-                ", com CPF "+ getCpf() +
-                ", data de nascimento "+ getBirthday() +
-                " com idade de "+ getAge() +
+                ", com CPF " + getCpf() +
+                ", data de nascimento " + getBirthday() +
+                " com idade de " + getAge() +
                 ", email: " + getEmail() +
-                ", endereço "+ getAddress() +
-                " e telefone "+ getPhone();
+                ", endereço " + getAddress() +
+                " e telefone " + getPhone();
     }
 
 }

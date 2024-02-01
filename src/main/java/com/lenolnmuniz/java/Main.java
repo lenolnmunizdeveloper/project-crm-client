@@ -3,8 +3,10 @@ package com.lenolnmuniz.java;
 import com.lenolnmuniz.java.clients.Client;
 import com.lenolnmuniz.java.clients.ClientBuilder;
 
+import java.text.ParseException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Client clientOne = new Client("Lenoln", "B A M", "Muniz", "111.222.333-44",
                 "06/03/1997", 'M', "lenoln@lenoln.com", "Rua tal, número 123, bairro Tal, cidade Tal/MG",
                 "(31) 98922-2771");
