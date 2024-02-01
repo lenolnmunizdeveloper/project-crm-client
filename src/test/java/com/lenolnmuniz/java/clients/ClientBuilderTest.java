@@ -4,10 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientBuilderTest {
 
@@ -17,13 +14,13 @@ public class ClientBuilderTest {
     @Before
     public void setUp() throws Exception {
         clientBuilder = new ClientBuilder().withId("Lenoln", "B A M", "Muniz", "111.222.333-44", "06/03/1997", 'M');
-        clientBuilder2 = new ClientBuilder().withId("John", "D E F", "Doe","123.456.789-01", "01/01/2000", 'M' );
+        clientBuilder2 = new ClientBuilder().withId("John", "D E F", "Doe", "123.456.789-01", "01/01/2000", 'M');
     }
 
-   @Test
+    @Test
     public void testWithId() {
         assertNotNull(clientBuilder.withId("Lenoln", "B A M", "Muniz", "111.222.333-44", "06/03/1997", 'M'));
-        assertNotNull(clientBuilder2.withId("John", "D E F", "Doe","123.456.789-01", "01/01/2000", 'M' ));
+        assertNotNull(clientBuilder2.withId("John", "D E F", "Doe", "123.456.789-01", "01/01/2000", 'M'));
     }
 
     @Test
@@ -31,7 +28,7 @@ public class ClientBuilderTest {
         assertNotNull(clientBuilder.withContacts("lenoln@lenoln.com",
                 "Rua tal, número 123, bairro Tal, cidade Tal/MG",
                 "(31) 98922-2771"));
-        assertNotNull(clientBuilder.withContacts("","",""));
+        assertNotNull(clientBuilder.withContacts("", "", ""));
     }
 
     @Test
